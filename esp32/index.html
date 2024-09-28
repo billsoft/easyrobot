@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>机器狗监控与控制</title>
+    <style>
+        *{margin: 0;
+        padding: 100;}
+        h1{
+            text-align: center;
+            color: #4CAF50;
+        }
+        button {
+            width:100px;
+            height:100px;
+            font-size: 15px;
+        }
+        .video-container {
+            width: auto;
+            height: auto;
+            margin: 0;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .button-container { 
+            width:300px;
+            margin:50px;
+            padding:0;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            margin: 50px;
+        }
+        .empty-container {
+            width:100px;
+            height:100px;
+        
+        }
+        .row-container {
+            display: flex;
+            width: auto;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+      <h1>机器狗监控与控制</h1>
+      <div class="container">
+          <div class="video-container">
+              <img src="/video_feed" alt="未获取到视频">
+          </div>
+          <div class="button-container">
+              <span style="font-size: 15px;color: #4CAF50;">机器狗控制</span>
+              <div class="row-container">
+                  <div class="empty-container"></div>
+                  <button class="go">前进</button>
+              </div>
+              <div class="row-container">
+                  <button class="left">左转</button>
+                  <button class="turn">翻转</button>
+                  <button class="right">右转</button>
+
+              </div>
+              <div class="row-container">
+                  <div class="empty-container"></div>
+                  <button class="back">后退</button>
+              </div>
+              <script>
+                  const gobtn = document.querySelector(".go");
+                  const bkbtn = document.querySelector(".back");
+                  const ltbtn = document.querySelector(".left");
+                  const rtbtn = document.querySelector(".right");
+                  const rnbtn = document.querySelector(".turn");
+                  gobtn.addEventListener("click",(e)=>{
+                      fetch("/go",{
+                          method:"get",
+                      }).then(e=>{
+                          console.log("消息",e);
+                      }).catch(error=>{
+                          console.log("报错了",error);
+                      })
+                   })
+                  bkbtn.addEventListener("click",(e)=>{
+                      fetch("/back",{
+                          method:"get",
+                      }).then(e=>{
+                          console.log("消息",e);
+                      }).catch(error=>{
+                          console.log("报错了",error);
+                      })
+                   })
+                  ltbtn.addEventListener("click",(e)=>{
+                      fetch("/left",{
+                          method:"get",
+                      }).then(e=>{
+                          console.log("消息",e);
+                      }).catch(error=>{
+                          console.log("报错了",error);
+                      })
+                   })
+                  rtbtn.addEventListener("click",(e)=>{
+                      fetch("/right",{
+                          method:"get",
+                      }).then(e=>{
+                          console.log("消息",e);
+                      }).catch(error=>{
+                          console.log("报错了",error);
+                      })
+                   })
+                   rnbtn.addEventListener("click",(e)=>{
+                      fetch("/turn",{
+                          method:"get",
+                      }).then(e=>{
+                          console.log("消息",e);
+                      }).catch(error=>{
+                          console.log("报错了",error);
+                      })
+                   })
+                </script> 
+            </div>
+        </div>
+</body>
+</html>
