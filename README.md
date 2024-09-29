@@ -8,3 +8,4 @@
 4.主控可以直接使用arduino uno，不需要用文件里的板子，只是内部用面包板这些会比较乱，但不影响使用。<br>
 5.模型可以颜色可自行搭配，模型文件地址<br>
 [模型下载地址](https://makerworld.com/zh/models/670436#profileId-598128)
+[基本功能演示](https://www.bilibili.com/video/BV1YAxkewE2Q/?vd_source=0b2798e3dbadd3bb799cc7f946455f03)
